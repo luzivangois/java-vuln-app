@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "3c88fc6e-cf2e-4100-8fa1-3c210ec96472",
+		"name": "advocacia-associados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27560622"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Criar Usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Usuário\",\r\n    \"login\": \"usuario\",\r\n    \"senha\": \"123\",\r\n    \"isAdmin\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/usuario/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"usuario\",\r\n    \"senha\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/usuario/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Todos Usuários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Usuário por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/usuario/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Senha",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"nome usuario\",\r\n    \"login\": \"loginUsuario\",\r\n    \"senha\": \"senhaUsuario\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Usuário",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/usuario/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Arquivo",
+			"item": [
+				{
+					"name": "Enviar Documento",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "arquivo",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "nome",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8080/arquivo/enviodocumento"
+					},
+					"response": []
+				},
+				{
+					"name": "Exibir Conteúdo do Arquivo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:8080/arquivo/name"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
