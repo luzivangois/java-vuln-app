@@ -21,13 +21,10 @@ public class MySecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.POST, "/usuario/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/usuario").permitAll()
                 .requestMatchers(HttpMethod.POST, "/usuario/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/usuario/register").permitAll()
-                .requestMatchers(HttpMethod.GET, "/processo/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/arquivo/enviodocumento").permitAll()
-                .requestMatchers(HttpMethod.POST, "/enviodocumento").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .cors();
