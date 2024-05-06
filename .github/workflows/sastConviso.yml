@@ -13,6 +13,7 @@ jobs:
      env:
        FLOW_API_KEY:  ${{secrets.CONVISO_API_KEY}}
        CONVISO_COMPANY_ID: 553
+       FLOW_PROJECT_CODE: "t4HsHF7GGJ6DlzPF"
    steps:
    - uses: actions/checkout@v3
 
