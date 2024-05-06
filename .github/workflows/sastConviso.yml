@@ -17,4 +17,4 @@ jobs:
    - uses: actions/checkout@v3
 
    - name: Run SAST
-     run: conviso sast run
+     run: conviso sast run, conviso sca run
