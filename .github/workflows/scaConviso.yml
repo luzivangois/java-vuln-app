@@ -1,0 +1,20 @@
+name: CI
+on:
+ push:
+   branches: [ master ]
+ pull_request:
+   branches: [ master ]
+
+jobs:
+ conviso-sca:
+   runs-on: ubuntu-latest
+   container:
+     image: convisoappsec/convisocli
+     env:
+       FLOW_API_KEY:  ${{secrets.CONVISO_API_KEY}}
+       FLOW_PROJECT_CODE: "t4HsHF7GGJ6DlzPF"
+   steps:
+   - uses: actions/checkout@v3
+
+   - name: Run SCA
+     run: conviso sca run
